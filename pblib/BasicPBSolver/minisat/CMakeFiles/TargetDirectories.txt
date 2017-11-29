@@ -1,0 +1,8 @@
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/BasicPBSolver/minisat/CMakeFiles/rebuild_cache.dir
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/BasicPBSolver/minisat/CMakeFiles/edit_cache.dir
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/BasicPBSolver/minisat/CMakeFiles/install.dir
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/BasicPBSolver/minisat/CMakeFiles/list_install_components.dir
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/BasicPBSolver/minisat/CMakeFiles/minisat-lib-static.dir
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/BasicPBSolver/minisat/CMakeFiles/minisat-lib-shared.dir
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/BasicPBSolver/minisat/CMakeFiles/install/local.dir
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/BasicPBSolver/minisat/CMakeFiles/install/strip.dir

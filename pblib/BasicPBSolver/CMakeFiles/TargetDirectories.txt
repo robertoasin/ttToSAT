@@ -1,0 +1,8 @@
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/BasicPBSolver/CMakeFiles/install.dir
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/BasicPBSolver/CMakeFiles/list_install_components.dir
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/BasicPBSolver/CMakeFiles/rebuild_cache.dir
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/BasicPBSolver/CMakeFiles/edit_cache.dir
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/BasicPBSolver/CMakeFiles/pbsolver.dir
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/BasicPBSolver/CMakeFiles/CheckForLibs.dir
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/BasicPBSolver/CMakeFiles/install/local.dir
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/BasicPBSolver/CMakeFiles/install/strip.dir

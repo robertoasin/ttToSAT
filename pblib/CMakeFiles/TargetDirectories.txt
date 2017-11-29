@@ -1,0 +1,10 @@
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/CMakeFiles/rebuild_cache.dir
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/CMakeFiles/tar.dir
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/CMakeFiles/setup.dir
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/CMakeFiles/pbencoder.dir
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/CMakeFiles/cpfiles.dir
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/CMakeFiles/pblib.dir
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/CMakeFiles/fuzzer.dir
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/CMakeFiles/edit_cache.dir
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/CMakeFiles/tar_lib.dir
+/home/rasin/Dropbox/UdeC/semestre-2017-02/seminarioUMSS/tallerSAT/lib/CMakeFiles/pbo2maxsat.dir
