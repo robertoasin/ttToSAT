@@ -77,20 +77,20 @@ struct STTInstance{
     fscanf(f,"%d\n",&numMaterias);
     fscanf(f,"%d\n",&numProfesores);
     fscanf(f,"%d\n",&numAulas);
-    fscanf(f,"%d\n",&numDias); 
+    fscanf(f,"%d\n",&numDias);
     fscanf(f,"\n");
 
     /*Reservar memoria*/
-    datosProfesores.resize(numProfesores+1);
-    datosPeriodos.resize(numPeriodos+1);
-    datosAulas.resize(numAulas+1);
-    datosCursos.resize(numCursos+1);
-    datosMaterias.resize(numMaterias+1);
+    datosProfesores.resize(numProfesores);
+    datosPeriodos.resize(numPeriodos);
+    datosAulas.resize(numAulas);
+    datosCursos.resize(numCursos);
+    datosMaterias.resize(numMaterias);
     datosReuniones.resize(numCursos*numPeriodos);
     reunionesPorProfesor.resize(numProfesores);
     reunionesPorCurso.resize(numCursos);
     reunionesPorAula.resize(numAulas);
-    
+
     for(i=0;i<numProfesores;i++){
       datosProfesores[i].disponibilidad=(char*)malloc((numPeriodos+1)*sizeof(char));
       reunionesPorProfesor[i] = vector<int>();
@@ -106,7 +106,7 @@ struct STTInstance{
     for(i=0;i<numMaterias;i++){
       datosMaterias[i].disponibilidad=(char*)malloc((numPeriodos+1)*sizeof(char));
     }
-    
+
     /*Leer datos*/
     for(i=0 ; i<numPeriodos ; i++){//periodos
       fscanf(f,"%d %d %d\n",&(datosPeriodos[i].iden), &(datosPeriodos[i].tipo), &(datosPeriodos[i].dia));
@@ -124,11 +124,11 @@ struct STTInstance{
 	datosReuniones[idReunion].idenMateria  = idMateria;
 	datosReuniones[idReunion].idenProfesor = idProfesor;
 	datosReuniones[idReunion].idenAula     = idAula;
-      
+
 	if(idProfesor) reunionesPorProfesor[idProfesor].push_back(idReunion);
-	if(idAula) reunionesPorAula[idAula].push_back(idReunion);
+	if(idAula!=idCurso) reunionesPorAula[idAula].push_back(idReunion);
 	reunionesPorCurso[idCurso].push_back(idReunion);
-	    
+
 	for(k=0; k < numDepHor ;k++){
 	  fscanf(f,"%d\n",&dep);
 	  dep--;
@@ -146,7 +146,7 @@ struct STTInstance{
     for(i=0;i<numProfesores;i++){//Profesores
       fscanf(f,"%d %s\n",&datosProfesores[i].iden,datosProfesores[i].disponibilidad);
     }
-  
+
     fscanf(f,"\n");
     for(i=0;i<numMaterias;i++){//Materias
       fscanf(f,"%s %s\n",datosMaterias[i].disponibilidad,datosMaterias[i].nombre);

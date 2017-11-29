@@ -77,6 +77,79 @@ struct TTEncoder{
       }
      }
     }
+
+    //Por cada aula y periodo, solo una reunion posible //No considerar aula 0
+    for(int a=1;a<ttInstance.numAulas;++a){
+     if(ttInstance.reunionesPorAula[a].size())
+      for(int i=0;i<ttInstance.reunionesPorAula[a].size()-1;++i){
+       for(int j=i+1;j<ttInstance.reunionesPorAula[a].size();++j){
+        for(int p=0;p<ttInstance.numPeriodos;++p){
+         int r1 = ttInstance.reunionesPorAula[a][i];
+         int r2 = ttInstance.reunionesPorAula[a][j];
+         string varT1 = getMeetingTimeVar(r1,p);
+         string varT2 = getMeetingTimeVar(r2,p);
+         int varE1 = varToInt[varT1];
+         int varE2 = varToInt[varT2];
+         //printf("%s %s\n",varT1.c_str(),varT2.c_str());
+         fprintf(f,"%d %d 0\n",-varE1,-varE2);
+         numClauses++;
+       }
+      }
+     }
+    }
+
+    //Por cada profesor y periodo, solo una reunion posible //No considerar profesor 0
+    for(int a=1;a<ttInstance.numProfesores;++a){
+     if(ttInstance.reunionesPorProfesor[a].size())
+      for(int i=0;i<ttInstance.reunionesPorProfesor[a].size()-1;++i){
+       for(int j=i+1;j<ttInstance.reunionesPorProfesor[a].size();++j){
+        for(int p=0;p<ttInstance.numPeriodos;++p){
+         int r1 = ttInstance.reunionesPorProfesor[a][i];
+         int r2 = ttInstance.reunionesPorProfesor[a][j];
+         string varT1 = getMeetingTimeVar(r1,p);
+         string varT2 = getMeetingTimeVar(r2,p);
+         int varE1 = varToInt[varT1];
+         int varE2 = varToInt[varT2];
+         //printf("%s %s\n",varT1.c_str(),varT2.c_str());
+         fprintf(f,"%d %d 0\n",-varE1,-varE2);
+         numClauses++;
+       }
+      }
+     }
+    }
+
+    //Prohibir horas de Profesores
+    for(int a=1;a<ttInstance.numProfesores;++a){
+      if(ttInstance.reunionesPorProfesor[a].size())
+       for(int i=0;i<ttInstance.reunionesPorProfesor[a].size();++i){
+         for(int p=0;p<ttInstance.numPeriodos;++p){
+          if(ttInstance.datosProfesores[a].disponibilidad[p]=='0'){
+           int r1 = ttInstance.reunionesPorProfesor[a][i];
+           string varT1 = getMeetingTimeVar(r1,p);
+           int varE1 = varToInt[varT1];
+           //printf("%s %s\n",varT1.c_str(),varT2.c_str());
+           fprintf(f,"%d 0\n",-varE1);
+           numClauses++;
+          }
+        }
+       }
+      }
+
+     //Prohibir horas de Cursos
+     for(int c=0;c<ttInstance.numCursos;++c){
+       for(int i=0;i<ttInstance.reunionesPorCurso[c].size();++i){
+         int r1 = ttInstance.reunionesPorCurso[c][i];
+         for(int p=0;p<ttInstance.numPeriodos;++p){
+          if(ttInstance.datosCursos[c].disponibilidad[p]=='0' and ttInstance.datosReuniones[r1].idenAula!=0){
+           string varT1 = getMeetingTimeVar(r1,p);
+           int varE1 = varToInt[varT1];
+           //printf("%s %s\n",varT1.c_str(),varT2.c_str());
+           fprintf(f,"%d 0\n",-varE1);
+           numClauses++;
+          }
+        }
+       }
+      }
     fseek ( f , 0, SEEK_SET );
     fprintf(f,"p cnf %d %d\n",numVars,numClauses);
     fclose(f);
