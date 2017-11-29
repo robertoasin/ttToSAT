@@ -8,7 +8,7 @@ struct TTEncoder{
   int numClauses;
   map<string,int> varToInt;
   map<int,string> intToVar;
-  
+
   TTEncoder(){
     numVars    = 0;
     numClauses = 0;
@@ -28,17 +28,17 @@ struct TTEncoder{
 
     return result;
   }
-  
+
   void getMeetingAndTimeFromVar(string var, int &idReunion, int &idPeriodo){
     vector<string> parts = split(var.c_str(),'_');
     idReunion = stoi(parts[1]);
     idPeriodo = stoi(parts[2]);
   }
-  
+
   string getMeetingTimeVar(int idReunion, int idPeriodo){
     return("x_"+to_string(idReunion)+'_'+to_string(idPeriodo));
   }
-  
+
   void loadVarsFromInstance(STTInstance& ttInstance){
     //vars x_i_j -> reunion i ocurre en el periodo j
     for(int i=0;i<ttInstance.datosReuniones.size();++i){
@@ -52,13 +52,39 @@ struct TTEncoder{
 
   void encodeInstance(char* cnfFile, STTInstance& ttInstance){
     FILE *f = fopen(cnfFile,"wt");
-    
+    loadVarsFromInstance(ttInstance);
+    fprintf(f,"                                                \n");
+    //Al menos una asignacion por reunion
+    for(int i=0;i<ttInstance.datosReuniones.size();++i){
+     for(int j=0;j<ttInstance.numPeriodos;++j){
+      string varTexto = getMeetingTimeVar(i,j);
+      int varEntero = varToInt[varTexto];
+      fprintf(f,"%d ",varEntero);
+     }
+     fprintf(f,"0\n");
+     numClauses++;
+    }
+    //Como mucho una asignacion por reunion
+    for(int i=0;i<ttInstance.numPeriodos-1;++i){
+     for(int j=i+1;j<ttInstance.numPeriodos;++j){
+      for(int k=0;k<ttInstance.datosReuniones.size();++k){
+       string varT1 = getMeetingTimeVar(k,i);
+       string varT2 = getMeetingTimeVar(k,j);
+       int varE1 = varToInt[varT1];
+       int varE2 = varToInt[varT2];
+       fprintf(f,"%d %d 0\n",-varE1,-varE2);
+       numClauses++;
+      }
+     }
+    }
+    fseek ( f , 0, SEEK_SET );
+    fprintf(f,"p cnf %d %d\n",numVars,numClauses);
     fclose(f);
   }
-  
+
   void decodeInstance(char* modelFile, STTInstance& ttInstance){
     FILE *f = fopen(modelFile,"rt");
-    
+
     fclose(f);
   }
 
